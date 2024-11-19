@@ -16,16 +16,11 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.SpecialPower {
         public static void Add() {
             var BetaStrike = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "BetaStrike", bp => {
                 bp.SetName(IsekaiContext, "Beta Strike");
-                bp.SetDescription(IsekaiContext, "You get an additional {g|Encyclopedia:Attack}attack{/g} per {g|Encyclopedia:Combat_Round}round{/g} but take a –4 penalty to damage rolls.");
+                bp.SetDescription(IsekaiContext, "You get an additional {g|Encyclopedia:Attack}attack{/g} per {g|Encyclopedia:Combat_Round}round{/g}.");
                 bp.m_Icon = Icon_ArcaneWeaponSpeed;
                 bp.AddComponent<BuffExtraAttack>(c => {
                     c.Number = 1;
                     c.Haste = false;
-                });
-                bp.AddComponent<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Penalty;
-                    c.Stat = StatType.AdditionalDamage;
-                    c.Value = -4;
                 });
             });
             SpecialPowerSelection.AddToSelection(BetaStrike);

@@ -17,7 +17,7 @@ namespace IsekaiMod.Content.Dialogue {
             var FinneanCompanionRef = BlueprintTools.GetBlueprintReference<BlueprintUnitReference>("ea8034769ab7d584e97b5227cbc03296");
 
             var IsekaiDialogueFinneanReply = TTCoreExtensions.CreateCue("IsekaiDialogueFinneanReply", bp => {
-                bp.SetText(IsekaiContext, "\"No, but I can transform into a flamberge greatsword to stick up your bitch ass.\"");
+                bp.SetText(IsekaiContext, "\"Not sure what you mean, I can be any weapon you want? Am I not good enough?\"");
                 bp.Speaker = new DialogSpeaker {
                     m_Blueprint = null,
                     MoveCamera = false,
@@ -26,7 +26,7 @@ namespace IsekaiMod.Content.Dialogue {
                 bp.Answers = AnswersList_0003.Answers;
             });
             var IsekaiDialogueFinnean = TTCoreExtensions.CreateAnswer("IsekaiDialogueFinnean", bp => {
-                bp.SetText(IsekaiContext, "(Isekai Protagonist) \"Hey can you transform into a hot succubus?\"");
+                bp.SetText(IsekaiContext, "(Isekai Protagonist) \"Hey can't you transform into anything cooler?\"");
                 bp.NextCue = new CueSelection() {
                     Cues = new List<BlueprintCueBaseReference>() { IsekaiDialogueFinneanReply.ToReference<BlueprintCueBaseReference>() },
                     Strategy = Strategy.First

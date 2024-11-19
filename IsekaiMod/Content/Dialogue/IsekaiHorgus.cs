@@ -40,7 +40,7 @@ namespace IsekaiMod.Content.Dialogue {
             });
             // Answer
             var IsekaiDialogueHorgus = TTCoreExtensions.CreateAnswer("IsekaiDialogueHorgus", bp => {
-                bp.SetText(IsekaiContext, "(Isekai Protagonist) \"Two thousand gold... And your daughter joins my harem.\"");
+                bp.SetText(IsekaiContext, "(Isekai Protagonist) \"Two thousand gold... And you give me blessing to mary your daughter.\"");
                 bp.NextCue = new CueSelection {
                     Cues = new List<BlueprintCueBaseReference>() { IsekaiDialogueHorgusReply.ToReference<BlueprintCueBaseReference>() },
                     Strategy = Strategy.First

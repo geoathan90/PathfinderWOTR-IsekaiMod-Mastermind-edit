@@ -22,44 +22,44 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility {
 
             var DodgeMaster = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "DodgeMaster", bp => {
                 bp.SetName(IsekaiContext, "Underpowered Ability — Dodge Master");
-                bp.SetDescription(IsekaiContext, "You gain a +2 dodge {g|Encyclopedia:Bonus}bonus{/g} to your {g|Encyclopedia:Armor_Class}AC{/g}.");
+                bp.SetDescription(IsekaiContext, "You gain a +10 dodge {g|Encyclopedia:Bonus}bonus{/g} to your {g|Encyclopedia:Armor_Class}AC{/g}.");
                 bp.m_Icon = Icon_Haste;
                 bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Dodge;
                     c.Stat = StatType.AC;
-                    c.Value = 2;
+                    c.Value = 10;
                 });
             });
 
-            var BulkMaster = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "BulkMaster", bp => {
-                bp.SetName(IsekaiContext, "Underpowered Ability — Bulk Master");
-                bp.SetDescription(IsekaiContext, "You gain +10 {g|Encyclopedia:HP}hit points{/g} and a +1 bonus to your Strength.");
+            var BulkMaster = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "Super Strength", bp => {
+                bp.SetName(IsekaiContext, "Underpowered Ability — Super Strength");
+                bp.SetDescription(IsekaiContext, "You gain +100 {g|Encyclopedia:HP}hit points{/g} and a +10 bonus to your Strength.");
                 bp.m_Icon = Icon_BelieveInYourselfStrength;
                 bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Stat = StatType.HitPoints;
-                    c.Value = 10;
+                    c.Value = 100;
                 });
                 bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Stat = StatType.Strength;
-                    c.Value = 1;
+                    c.Value = 10;
                 });
             });
 
             var ThoughtMaster = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "ThoughtMaster", bp => {
                 bp.SetName(IsekaiContext, "Underpowered Ability — Thought Master");
-                bp.SetDescription(IsekaiContext, "You gain a +1 bonus to your {g|Encyclopedia:Intelligence}Intelligence{/g} and {g|Encyclopedia:Wisdom}Wisdom{/g}.");
+                bp.SetDescription(IsekaiContext, "You gain a +10 bonus to your {g|Encyclopedia:Intelligence}Intelligence{/g} and {g|Encyclopedia:Wisdom}Wisdom{/g}.");
                 bp.m_Icon = Icon_CrystalMind;
                 bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Stat = StatType.Intelligence;
-                    c.Value = 1;
+                    c.Value = 10;
                 });
                 bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Stat = StatType.Wisdom;
-                    c.Value = 1;
+                    c.Value = 10;
                 });
             });
 

@@ -140,7 +140,7 @@ namespace IsekaiMod.Content {
                 OtherworldlyStamina.Add();
                 IsekaiQuickFooted.Add();
                 IsekaiAuraSelection.Add();
-                SummonHarem.Add();
+                SummonExaltedChoir.Add();
                 SecondReincarnation.Add();
                 ReleaseEnergy.Add();
                 Gifted.Add();
@@ -272,6 +272,7 @@ namespace IsekaiMod.Content {
                 Backgrounds.EnlightenedSage.Add();
                 Backgrounds.Musician.Add();
                 Backgrounds.Rationalist.Add();
+                Backgrounds.CollegeStudent.Add();
             }
             public static void AddIsekaiDeities() {
                 // Add the Selection First

@@ -70,7 +70,7 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility {
                 BlueprintTools.GetBlueprint<BlueprintBuff>("9e265139cf6c07c4fb8298cb8b646de9"), // MagicalVestimentArmorBuff
                 BlueprintTools.GetBlueprint<BlueprintBuff>("2e8446f820936a44f951b50d70a82b16"), // MagicalVestimentShieldBuff
                 BlueprintTools.GetBlueprint<BlueprintBuff>("51ebd62ee464b1446bb01fa1e214942f"), // DelayPoisonBuff
-                BlueprintTools.GetBlueprint<BlueprintBuff>("e6b35473a237a6045969253beb09777c"), // InvisibilityGreaterBuff
+                //BlueprintTools.GetBlueprint<BlueprintBuff>("e6b35473a237a6045969253beb09777c"), // InvisibilityGreaterBuff
                 BlueprintTools.GetBlueprint<BlueprintBuff>("37a956d0e7a84ab0bb66baf784767047"), // StoneSkinBuff
                 BlueprintTools.GetBlueprint<BlueprintBuff>("b0253e57a75b621428c1b89de5a937d1"), // DeathWardBuff
                 BlueprintTools.GetBlueprint<BlueprintBuff>("1533e782fca42b84ea370fc1dcbf4fc1"), // FreedomOfMovementBuff

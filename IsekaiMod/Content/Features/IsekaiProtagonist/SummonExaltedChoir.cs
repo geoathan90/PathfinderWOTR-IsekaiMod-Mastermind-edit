@@ -22,7 +22,7 @@ using static IsekaiMod.Main;
 
 namespace IsekaiMod.Content.Features.IsekaiProtagonist {
 
-    internal class SummonHarem {
+    internal class SummonExaltedChoir {
 
         // Units
         private static readonly BlueprintUnit CR20_SuccubusAdvancedFighter = BlueprintTools.GetBlueprint<BlueprintUnit>("2db556136eac2544fa9744314c2a5713");
@@ -35,8 +35,8 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist {
         private static readonly Sprite Icon_SummonMonsterIX = BlueprintTools.GetBlueprint<BlueprintAbility>("52b5df2a97df18242aec67610616ded0").m_Icon;
 
         public static void Add() {
-            var SummonHaremAbility = Helpers.CreateBlueprint<BlueprintAbility>(IsekaiContext, "SummonHaremAbility", bp => {
-                bp.SetName(IsekaiContext, "Summon Harem");
+            var SummonExaltedChoirAbility = Helpers.CreateBlueprint<BlueprintAbility>(IsekaiContext, "SummonExaltedChoirAbility", bp => {
+                bp.SetName(IsekaiContext, "Summon Exalted Choir");
                 bp.SetSummonDescription(IsekaiContext, "This {g|Encyclopedia:Spell}spell{/g} summons a Succubus, Nymph, Astral Deva, and an Erinyes.");
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = ActionFlow.DoSingle<ContextActionOnNearbyPoint>(c => {
@@ -46,9 +46,6 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist {
                             }),
                             SpawnMonster(c => {
                                 c.m_Blueprint = CR14_AstralDeva.ToReference<BlueprintUnitReference>();
-                            }),
-                            SpawnMonster(c => {
-                                c.m_Blueprint = CR7_Nymph.ToReference<BlueprintUnitReference>();
                             }),
                             SpawnMonster(c => {
                                 c.m_Blueprint = CR22_ErinyesDevilStandard.ToReference<BlueprintUnitReference>();
@@ -79,11 +76,11 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist {
                 bp.LocalizedSavingThrow = StaticReferences.Strings.Null;
             });
             var SummonHaremFeature = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "SummonHaremFeature", bp => {
-                bp.SetName(IsekaiContext, "Summon Harem");
-                bp.SetDescription(IsekaiContext, "As a full action, you summon a Succubus, a Nymph, an Astral Deva, and an Erinyes to aid you in battle.");
+                bp.SetName(IsekaiContext, "Exalted Choir");
+                bp.SetDescription(IsekaiContext, "As a full action, you summon a Succubus, an Astral Deva, and an Erinyes to aid you in battle.");
                 bp.m_Icon = Icon_SummonMonsterIX;
                 bp.AddComponent<AddFacts>(c => {
-                    c.m_Facts = new BlueprintUnitFactReference[] { SummonHaremAbility.ToReference<BlueprintUnitFactReference>() };
+                    c.m_Facts = new BlueprintUnitFactReference[] { SummonExaltedChoirAbility.ToReference<BlueprintUnitFactReference>() };
                 });
             });
         }

@@ -35,7 +35,7 @@ namespace IsekaiMod.Content.Deities {
                 bp.SetName(IsekaiContext, "Truck-kun");
                 bp.SetDescription(IsekaiContext,
                     "Truck-kun is a menace of the streets, a killer that prowls the road before it smashes their victim so hard they get transported into another world. "
-                    + "Many fear death brought by Truck-kun, but there are some who believe that their reincarnation will bring them into a harem paradise. "
+                    + "Many fear death brought by Truck-kun, but there are some who believe that their reincarnation will bring them into a new world. "
                     + "Beware of the streets, and look at both sides of the road, or else you might be its latest victim."
                     + "\nDomains: Artifice, Destruction, Repose, Travel"
                     + "\nFavoured Weapon: Heavy Shield Bash");

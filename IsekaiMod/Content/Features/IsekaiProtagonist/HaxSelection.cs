@@ -3,6 +3,8 @@ using IsekaiMod.Utilities;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Enums;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
@@ -42,6 +44,41 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist {
                 bp.SetDescription(IsekaiContext, "You decide not to abuse your power.");
                 bp.m_Icon = null;
             });
+            var Ascension = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "Ascension", bp => {
+                bp.SetName(IsekaiContext, "Ascension");
+                bp.SetDescription(IsekaiContext, "You begin ascension to godhood, you are upgraded to Deity Status increasing all stats by 20.");
+                bp.m_Icon = Icon_Hax;
+                bp.AddComponent<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Other;
+                    c.Stat = StatType.Strength;
+                    c.Value = 20;
+                });
+                bp.AddComponent<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Other;
+                    c.Stat = StatType.Dexterity;
+                    c.Value = 20;
+                });
+                bp.AddComponent<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Other;
+                    c.Stat = StatType.Constitution;
+                    c.Value = 20;
+                });
+                bp.AddComponent<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Other;
+                    c.Stat = StatType.Intelligence;
+                    c.Value = 20;
+                });
+                bp.AddComponent<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Other;
+                    c.Stat = StatType.Wisdom;
+                    c.Value = 20;
+                });
+                bp.AddComponent<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Other;
+                    c.Stat = StatType.Charisma;
+                    c.Value = 20;
+                });
+            });
             var HaxSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>(IsekaiContext, "HaxSelection", bp => {
                 bp.SetName(IsekaiContext, "Hax");
                 bp.SetDescription(IsekaiContext, "So this is the result of 100 push-ups, 100 sit-ups, 100 squats and a 10km run...");
@@ -51,6 +88,7 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist {
                     Invincibility.ToReference<BlueprintFeatureReference>(),
                     FasterThanLight.ToReference<BlueprintFeatureReference>(),
                     NoHax.ToReference<BlueprintFeatureReference>(),
+                    Ascension.ToReference<BlueprintFeatureReference>(),
                 };
             });
         }

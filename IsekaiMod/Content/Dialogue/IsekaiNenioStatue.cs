@@ -59,7 +59,7 @@ namespace IsekaiMod.Content.Dialogue {
                 bp.ShowOnce = true;
             });
             var IsekaiDialogueNenioStatueAnswer5 = TTCoreExtensions.CreateAnswer("IsekaiDialogueNenioStatueAnswer5", bp => {
-                bp.SetText(IsekaiContext, "(Isekai Protagonist) \"I am God.\"");
+                bp.SetText(IsekaiContext, "(Isekai Protagonist) \"I am a God.\"");
                 bp.NextCue = new CueSelection {
                     Cues = new List<BlueprintCueBaseReference>() { IsekaiDialogueNenioStatueReply.ToReference<BlueprintCueBaseReference>() },
                     Strategy = Strategy.First
