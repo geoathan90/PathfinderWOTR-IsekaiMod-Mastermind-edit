@@ -1,290 +1,103 @@
-# Isekai Mod
-This is a content mod for `Pathfinder: Wrath of the Righteous` that adds an `Isekai Protagonist` Class into the game.
-This mod has been heavily modified and will continue to be modified. You can think of it as Isekai Protagonist 2.0.
-It currently compiles and runs with the latest version. If you run into issues please submit a bug report.
-Several changes have been made including:
-Updating dialogue
-Adjusting dialogue discussions
-Updating of certain class mechanics
-Buffing and nuking certain abilities for OP balance reasons: A full list is incoming.
-While being OP is awesome, if it's not balanced it can make the game boring; some of these modifications
-seek to make the game continue to be challenging on an unfair difficulty even with higher stats.
-## Development Guide
-### Requirements
-- Visual Studio
-### Setup
-- Add `WrathPath` as an environment variable with the value `C:\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure` or wherever your game directory is.
-- Open Visual Studio and [publicize your assemblies](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicize-Assemblies).
-## Mod Information
-### Requirements
-- [Unity Mod Manager](https://www.nexusmods.com/site/mods/21).
-- [TabletopTweaks-Core](https://github.com/Vek17/TabletopTweaks-Core/releases).
-### Installation
-- Open Unity Mod Manager and go to the 'Mods' tab.
-- Drag and Drop the [TabletopTweaks-Core.zip](https://github.com/Vek17/TabletopTweaks-Core/releases)﻿ file into Unity Mod Manager.
-- Drag and Drop the [IsekaiMod.zip](https://github.com/JohN100x1/WOTR_IsekaiMod/releases) file into Unity Mod Manager.
-If you use ModFinder rather than Unity Mod Manager just replace the name mentally in your head, instructions are otherwise identical.
+Isekai Mod: Reimagined and Reinvented
 
-### Downward Compatibility Warning for version 4.0.0
-The rogue abilities the protagonist, villain, and edge lord got and the paladin abilities the hero got were moved into progression features with plenty of additional options added (see below).
-This means a rather heavy change in the classes progression trees for all four of those options, if you are updating with an existing savegame using something like [barleyFlours Respec Mod](https://github.com/BarleyFlour/RespecMod) is highly advisable.
-Otherwise you will miss out on things when leveling up.
-Exception to this is the God Emperor as all options that were changed were not part of its original definition so you are only missing out on some additional options for overwhelming abilities you could have picked at level one.
+This is the Isekai Protagonist 2.0, an enhanced, rebalanced, and feature-rich content mod for Pathfinder: Wrath of the Righteous. 🎉
 
+Originally created by John100x1, this mod has been forked and overhauled to introduce more immersive gameplay, refined mechanics, and better balance while still staying true to the overpowered fantasy of the Isekai genre.
 
-### New Content
-- New Classes & Archetypes
-	- `Isekai Protagonist`
-		- Spontaneous caster that uses Charisma.
-		- Has a really powerful spellbook that has spells from all other classes.
-		- Has extra feats like the fighter but not limited to combat feats.
-		- Starts of with the `Plot Armor` feature which make them hard to kill.
-		- Has Overpowered Abilities.
-		- Can merge their spellbook with angel or lich.
-		- Can choose a familiar or animal companion... or a deathsnatcher.
-		- Can choose a legacy class feature (features from other classes).
-	- `God Emperor` (Isekai Protagonist Archetype)
-		- Spontaneous caster that uses Wisdom.
-		- Has powerful scaling immunities and auras.
-	- `Edge Lord` (Isekai Protagonist Archetype)
-		- Has alot of extra attacks.
-		- Uses dexterity for damage and attack rolls.
-	- `Hero` (Isekai Protagonist Archetype)
-		- Focuses to protective auras for allies.
-		- Uses charisma for damage and attack rolls.
-	- `Mastermind` (Isekai Protagonist Archetype)
-		- Intelligence based caster that memorizes spells like an arcanist.
-		- Spellbook has 10th level spells.
-	- `Overlord` (Isekai Protagonist Archetype)
-		- Has much more Overpowered Abilities.
-- New Features
-	- `Exceptional feats`: Strong feats that can be chosen in place of a feat/bonus feat.
-		- `Mythic feat`: You can choose a mythic feat instead of a normal/bonus feat.
-		- `Effect Immunity`: You become immune to a specific effect. (e.g. poison, bleed, charm etc.)
-		- `Mighty Summoning`: Your summons get +5 HP, +1 attack, and +1 AC per character level.
-		- `Magical Summoning`: Your summons get +5 HP, +1 spell penetration, +1 spell DC, +1 spell damage, and +1 to saving throws per character level.
-		- `Forbidden Summoning`: Your summons get +10 HP, and +1 to all attributes per character level. (requires Mighty and Magical Summoning).
-		- `Ferocious Summoning`: Your summons have 2 more attacks and +10 speed. They also get +1 sneak attack per character level. (requires Forbidden Summoning).
-		- `Exceptional Weapon`: Your attacks get an additional enchantment. (e.g. Corrosive, Flaming, Frost, etc.)
-	- `Plot Armor`: Get bonus on AC and Saving throws based on character level.
-	- `Special Power Feats`: A selection of bonus feats which have very good effects.
-		- `Alpha Strike`: Automatically confirm crits.
-		- `Beta Strike`: Get an extra attack.
-		- `Gamma Strike`: Ignore concealment and your attacks count as adamantine.
-		- `Omega Strike`: Increase your damage multipler by 1.
-		- `Sigma Strike`: Increase your critical threat range by 2.
-		- `Mundane Aura`: Get immunity to sneak attack and critical hits.
-		- `Regeneration`: Get regeneration 10/acid or fire (requires character level 10).
-		- `Training Montage`: Get a +8 bonus to all attributes.
-		- `Body Strengthening`: Get a DR/— equal to character level.
-		- `Spell Negation`: Get Spell resistance equal to 10 + twice character level.
-		- `Extreme Speed`: Allies within 40 feet of you get a speed bonus equal to 5 times your character level.
-		- `Channel Positive Energy`: You can channel positive energy.
-		- `Channel Negative Energy`: You can channel negative energy.
-		- `Sneaky Magic`: You can add your sneak attack damage to spells against flat-footed.
-		- `Spell Master`: Increase your spell DC by 4.
-		- `Magical Amplification`: Your spell damage dice become d10.
-		- `Armor Saint`: You can move at normal speed while wearing armor, reduce your armor check penalty to zero, and increase your max dexterity bonus.
-		- `Armor of Strength`: Get a natural armor bonus to AC equal to Strength modifier.
-		- `Summon Beast`: Summon a hydra, owlbear, roc, or minotaur.
-		- `Killing Intent`: Enemies within 40 feet become shaken, frightened, and cowering.
-		- `Reflect`: Deal damage to enemies equal to damage you receive.
-		- `Supermassive`: Gain bonus HP based on your Constitution modifier. You also get fast healing but have a penalty to AC.
-		- `Excalibur`: Your weapon gains the holy and radiant enchantments. Your attack range is massively increased.
-		- `Unreactable`: Enemies you attack are treated as flat-footed (requires character level 15).
-		- `Haggler`: Vendor prices are reduced.
-		- `Mythic Class Feature`: see below
-	- `Overpowered Ability`: Powerful gamebreaking abilities.
-		- `AutoBolster`: Bolsters every spell you cast.
-		- `AutoEmpower`: Empowers every spell you cast.
-		- `AutoExtend`: Extends every spell you cast.
-		- `AutoMaximize`: Maximizes every spell you cast.
-		- `AutoQuicken`: Quickens every spell you cast.
-		- `AutoReach`: Gives more range on every spell you cast.
-		- `AutoSelective`: Exclude selected targets on every spell you cast.
-		- `Instakill`: Kills target creature (no HP limit).(Some bosses immune)
-		- `Business Tycoon - Dupe Gold`: Get infinite gold.(
-		- `Perfect Roll`: Roll 20 on every d20 roll.(Nerfed to 15 - 20)
-		- `Super Buff`: Apply many powerful buffs on you and your allies(nerfed)
-		- `Infinite Inventory`: Get infinite carry capacity.
-		- `Unlimited Power`: Restore all ability and spell slots at will.
-		- `Mind Control`: Make an enemy creature fight for you.
-		- `Summon Calamity`: Summon a Devastator, Baphomet, Deskari, Nocticula, Mephistopheles, or Areshkagal.
-		- `True Resurrection`: Resurrect a dead companion (no diamond cost).
-		- `Supreme Being`: All your attributes have a base value of 30.
-		- `Meta Luck`: Always take the higher of two d20 rolls.
-		- `Power Leveling`: Gain extra experience when you kill an enemy.(currently broken when also using toy bag as it overrides power leveling)
-		- `Master Summoner`: Gain extra summons to the total number of creatures summoned.
-		- `Overpowered Aura`: 4 different alignment based auras which give either extra attack(s) and/or damage.
-		- `Underpowered Ability`: A selection of less powerful effects. Most of these effects are still powerful, such as bonuses to stats, but not as game-breaking.
-		- `Mythic Class Feature`: see below
-		- `Dual Legacy`: Pick a second base class to get abilities from.
-		- The following requires TabletopTweaks-Base:
-			- `Auto Rime`: Cold spells entangle the target for a number of rounds.
-			- `Auto Burning`: Acid and fire spells cause acid or fire damage on the next round.
-			- `Auto Flaring`: Light, fire, and electricity spells cause the dazzled condition.
-			- `Auto Piercing`: Spells treat target's SR as 5 lower than actual SR.
-			- `Auto Solid Shadows`: Shadow spells are 20% more real.
-			- `Auto Encouraging`: Increase spells' morale bonus by 1.
-			- `Auto Intensified`: Increase spells' max damage dice by 5.
-			- `Auto Elemental (Acid)`: Replace or split spells' damage with acid.
-			- `Auto Elemental (Cold)`: Replace or split spells' damage with cold.
-			- `Auto Elemental (Electricity)`: Replace or split spells' damage with electricity.
-			- `Auto Elemental (Fire)`: Replace or split spells' damage with fire.
-	- `Mythic Class Feature`: Access to a mythic class feature not your own
-		- `Angel Mythic Class Feature`: possible selections include the angelic halo and sword of heaven and their buffs
-		- `Azata Mythic Class Feature`: the superpowers
-		- `Lich Mythic Class Feature` : the lich powers
-		- `Trickster Mythic Class Feature`: the trickster skill specializations
-		- `Mythic Aeon Spells`: Aeon Spells in Protagonist Spellbook
-		- `Mythic Angel Spells`: as above but for Angel
-		- `Mythic Azata Spells`: as above but for Azata
-		- `Mythic Demon Spells`: as above but for Demon
-		- `Mythic Lich Spells`: as above but for Lich
-		- `Mythic Trickster Spells`: as above but for Trickster
-	- `Legacy`: if the gods had not interfered and made you into an overpowered spellcasting hero you would have been:
-		- `Barbarian Legacy - Ball of Rage`
-		- `Bard Legacy - Musical Prodige`
-		- `Dread Knight Legacy - Dread Lord` requires Expanded Content
-		- `Paladin Legacy - Hero of Light`
-		- `Kineticist Legacy - Kinetic Knight`
-		- `Kineticist Legacy - Kinetic Lord`
-		- `Kinetic Legacy - Soulbinder`
-		- `Kinetic Legacy - Noble Soul`		
-		- `Magus Legacy - Spellblade`
-		- `Oracle Legacy - Seeker of Truth`: does not grant its selections retroactivly, so best picked early.
-		- `Rogue Legacy - Supernatural Thief`
-		- `Shaman Legacy - Spirit Beacons`
-		- `Sorcerer Legacy - Chimera`: does not grant its selections retroactivly, so best picked early.
-		- `Fighter Legacy - Basic Fighter`
-		- `Fighter Legacy - Two Handed Fighter`
-		- `Fighter Legacy - Guardian Shield`
-		- `Monk Legacy - Daoist Martial Artist`
-		- `Monk Legacy - Fist of a Dragon`
-		- `Skald Legacy - Metal Singer`
-		- `Skald Legacy - Silver Tongue`
-		- `Skald Legacy - The Voice`
-		- `Druid Legacy - Nature Mage`
-		- `Shifter Legacy - Ditto`
-		- `Shifter Legacy - Stinger`
-		- `Shifter Legacy - Shapeshifted Baby Dragon`
-		- `Inquisitor Legacy - Domain Lord`
-		- `Inquisitor Legacy - Judge`
-		- `Inquisitor Legacy - Tactician` (thematically replaces `Tactician Legacy - Isekai Tactician`)
-		- `Witch Legacy - Pactmaker`
-		- `Bloodrager Legacy - Chimeric Rager`
-		- `Player Legacy - Computer Nerd`
-		- `Player Legacy - Part Timer`
-- New Animal Companion
-	- `Deathsnatcher`: A chaotic evil monstrous humanoid companion that can cast the animate dead spell. (Warning: very unbalanced)
-- New Mythic abilities
-	- `Mythic Overpowered Ability`: Gives you another Overpowered Ability.
-	- `Mythic Special Power`: Gives you another Special Power.
-- New Backgrounds
-	- `Tabletop RPG Player`: Adds all Lore and Knowledge skills as class skills. Lore and Knowledge skills use CHA instead of WIS/INT.
-	- `Martial Artist`: Get proficiency in all exotic weapons.
-	- `Salaryman`: Adds perception as a class skill. Perception uses CHA instead of WIS.
-	- `Highschool Student`: Get a +1 trait bonus to all attributes.
-	- `Reborn Demon Lord`: Get a +2 trait bonus to Strength and Electricity resistance 20.
-	- `Otaku`: Adds all skills as class skills except Persuasion.
-	- `Gamer`: Get a +8 competence bonus to all knowledge, lore, and perception checks.
-	- `Beta Tester`: Get +4 Initiative and adds lore, knowledge and perceptions skills as class skills.
-	- `Demonic Cultivator`: Adds athletics and mobility as a class skills. Uses the higher of STR and DEX for athletics and mobility checks.
-	- `Enlightened Sage`: Adds lore, knowledge, and perception skills as class skills. Uses the higher of INT and WIS for these checks.
-	- `Musician`: Adds Persuasion as a class skill. Has a +2 bonus to caster level and DC for Sonic spells.
-	- `Rationalist`: Has Immunity to spell and spell-like abilities but cannot cast spells.
-- New Heritages
-	- `Isekai Angel` (Aasimar Heritage): A powerful heritage for Aasimar that gives you wings and a powerful holy damage ability.
-	- `Isekai Succubus` (Tiefling Heritage): A powerful heritage for Tiefling that gives you wings and a powerful charm ability.
-	- `Isekai Vampire` (Dhampir Heritage): A powerful heritage for Dhampir that has fast healing and many immunities.
-	- `Isekai Dark Elf` (Elf Heritage): A powerful heritage for Elf that gives you the Drow Poison ability.
-	- `Isekai High Elf` (Elf Heritage): A powerful heritage for Elf that increases the number of spells you can cast per day.
-	- `Isekai Wood Elf` (Elf Heritage): A powerful heritage for Elf that have extra speed.
-	- `Isekai Spriggan` (Gnome Heritage): A powerful heritage for Gnome that gives you a size alteration ability.
-	- `Isekai Furry` (Kitsune Heritage): A powerful heritage for Kitsune that has fast healing and extra speed.
-- New Deities
-	- `Truck-kun`: A god of transportation.
-	- `Aqua`: A goddess of water.
-	- `Ristarte`: A goddess of healing.
-	- `Administrator D`: An ultimate god of evil.
-- New Dialogue
-	- Prologue, speaking with Hulrun at Kenabres Festival.
-	- Prologue, speaking with Horgus at Neathholm.
-	- Prologue, after finding Radiance in the Shield Maze.
-	- Act 1, first encounter with Minagho in Gray Garrison.
-	- Act 1, speaking with Anevia in the Bad Luck Tavern.
-	- Act 1, speaking with Irabeth in the Bad Luck Tavern.
-	- Act 1, speaking with Finnean.
-	- Act 2, speaking with statue in the Nameless Ruins.
-	- Random encounter, during drow ambush.
+New Repository: https://github.com/bkeath/PathfinderWOTR-IsekaiMod
+🛠️ Key Features & Changes
+Overhauled Abilities
 
-### Isekai Protagonist Spell progression
-#### Spells per Day table
-| Level | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th |
-|-------|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| 1     | 3   |     |     |     |     |     |     |     |     |
-| 2     | 6   |     |     |     |     |     |     |     |     |
-| 3     | 9   | 3   |     |     |     |     |     |     |     |
-| 4     | 12  | 6   |     |     |     |     |     |     |     |
-| 5     | 12  | 9   | 3   |     |     |     |     |     |     |
-| 6     | 12  | 12  | 6   |     |     |     |     |     |     |
-| 7     | 12  | 12  | 9   | 3   |     |     |     |     |     |
-| 8     | 12  | 12  | 12  | 6   |     |     |     |     |     |
-| 9     | 12  | 12  | 12  | 9   | 3   |     |     |     |     |
-| 10    | 12  | 12  | 12  | 12  | 6   |     |     |     |     |
-| 11    | 12  | 12  | 12  | 12  | 9   | 3   |     |     |     |
-| 12    | 12  | 12  | 12  | 12  | 12  | 6   |     |     |     |
-| 13    | 12  | 12  | 12  | 12  | 12  | 9   | 3   |     |     |
-| 14    | 12  | 12  | 12  | 12  | 12  | 12  | 6   |     |     |
-| 15    | 12  | 12  | 12  | 12  | 12  | 12  | 9   | 3   |     |
-| 16    | 12  | 12  | 12  | 12  | 12  | 12  | 12  | 6   |     |
-| 17    | 12  | 12  | 12  | 12  | 12  | 12  | 12  | 9   | 3   |
-| 18    | 12  | 12  | 12  | 12  | 12  | 12  | 12  | 12  | 6   |
-| 19    | 12  | 12  | 12  | 12  | 12  | 12  | 12  | 12  | 9   |
-| 20    | 12  | 12  | 12  | 12  | 12  | 12  | 12  | 12  | 12  |
-#### Spells Known table
-| Level | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th |
-|-------|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| 1     | 6   |     |     |     |     |     |     |     |     |
-| 2     | 12  |     |     |     |     |     |     |     |     |
-| 3     | 18  | 6   |     |     |     |     |     |     |     |
-| 4     | 24  | 12  |     |     |     |     |     |     |     |
-| 5     | 24  | 18  | 6   |     |     |     |     |     |     |
-| 6     | 30  | 24  | 6   |     |     |     |     |     |     |
-| 7     | 30  | 24  | 12  | 6   |     |     |     |     |     |
-| 8     | 30  | 30  | 18  | 6   |     |     |     |     |     |
-| 9     | 30  | 30  | 18  | 12  | 6   |     |     |     |     |
-| 10    | 30  | 30  | 24  | 18  | 6   |     |     |     |     |
-| 11    | 30  | 30  | 24  | 18  | 12  | 6   |     |     |     |
-| 12    | 30  | 30  | 24  | 24  | 18  | 6   |     |     |     |
-| 13    | 30  | 30  | 24  | 24  | 18  | 12  | 6   |     |     |
-| 14    | 30  | 30  | 24  | 24  | 24  | 18  | 6   |     |     |
-| 15    | 30  | 30  | 24  | 24  | 24  | 18  | 12  | 6   |     |
-| 16    | 30  | 30  | 24  | 24  | 24  | 24  | 18  | 6   |     |
-| 17    | 30  | 30  | 24  | 24  | 24  | 24  | 18  | 12  | 6   |
-| 18    | 30  | 30  | 24  | 24  | 24  | 24  | 24  | 18  | 6   |
-| 19    | 30  | 30  | 24  | 24  | 24  | 24  | 24  | 24  | 12  |
-| 20    | 30  | 30  | 24  | 24  | 24  | 24  | 24  | 24  | 20  |
+    Merchant's Gamble: Formerly Dupe Gold, this feature allows you to invest resources for exponential returns, bringing an exciting narrative flavor to resource management. 💰
+    Supreme Being: Now scales stats with +5 initially and an additional +1 every 2 levels and +1 per Mythic Rank.
+    Unlimited Power: Restores all spell slots with limited uses (1 at level 1, scaling to 5 at level 20).
+    Training Montage: Starts with a +1 bonus to all stats and scales to +5 by level 20, simulating continuous growth.
+    Beta Strike: Removed the -4 penalty, making it a true bonus attack.
+    Instakill: DC now scales dynamically with level for better balance.
+    Mind Control: Limited daily uses, scaling from 1/day to 5/day by level 20.
 
-## Mod Support
-This mod has support for the following mods.
-### TabletopTweaks-Base (2.5.2)
-If you have the `TabletopTweaks-Base` mod, the Isekai Protagonist will have all extra metamagics as OP ability options.
-### MysticalMayhem (0.1.5)
-If you have the `MysticalMayhem` mod, the `Isekai Protagonist` will have the 9th level `Meteor Swarm` spell added to its spellbook.
-### ExpandedContent (0.5.2)
-If you have the `ExpandedContent` mod, the `Isekai Protagonist` will have all the new spells add to its spellbook. You also get to choose drake companions.
-### SpellbookMerge (1.7.1)
-If you have the `SpellbookMerge` mod, the `Isekai Protagonist` will be able to merge its spellbook with Aeon, Azata, Demon, and Trickster.
+Updated Dialogue
 
-### Any Mod adding spells to the base classes
-As of version 4.0.0 there is an option to create the Isekai spell list by merging most of the non mythic ingame spell lists. That means that as long as the mod loads in before this one and adds the spell to at least one of those lists the Isekai Protagonist gets it too.
-The list of spell lists we merge for this is fairly comprehensive, Cleric, Wizard, Druid,all the base game domains, all the different wizard specialisation lists, Witch, ...
-As such almost no spell should need work on our part to add support for it, if you find one please let us know.
+The mod includes serious narrative updates to key dialogues, deepening immersion and adding gravitas to the storyline. Future dialogue overhauls and a roadmap for storytelling will be shared soon. ✍️
+✨ New Content
+Classes & Archetypes
 
-## Credits
-Thanks to Necht for fixing the Russian translation.
-Thanks to komoechan for fixing the Chinese translation.
-Thanks to kjk001 for contributing alot to this repository, improving the code to use TabletopTweaks-Core as well as adding lots of content.
-Thanks to WittleWolfie for creating this modding guide that helped me get started:
-- https://github.com/WittleWolfie/OwlcatModdingWiki/wiki
+    Isekai Protagonist
+        Charisma-based spontaneous caster with spells from all classes.
+        Features Plot Armor, bonus feats, and overpowered abilities.
+        Options for familiars, animal companions, or Deathsnatcher.
+        Legacy class feature integration for even more customization.
+
+    God Emperor (Archetype)
+        Wisdom-based caster with scaling immunities and divine auras.
+
+    Edge Lord (Archetype)
+        Dexterity-based extra attacker with a flair for critical hits.
+
+    Hero (Archetype)
+        Charisma-based protector with team-focused buffs.
+
+    Mastermind (Archetype)
+        Intelligence-based arcanist with access to 10th-level spells.
+
+    Overlord (Archetype)
+        Includes expanded access to Overpowered Abilities for total domination.
+
+Exceptional Feats
+
+    Mighty Summoning: Summons get +5 HP, +1 attack, and +1 AC per level.
+    Training Montage: Now scales attributes with level.
+    Regeneration: Grants 10 regeneration at level 10 (acid/fire bypass).
+    Super Buff: Balanced to maintain challenge while granting powerful advantages.
+
+Overpowered Abilities
+
+    Merchant’s Gamble: Narratively rich resource mechanic replacing Dupe Gold.
+    Summon Calamity: Call upon legendary figures like Deskari or Nocticula.
+    Meta Luck: Always take the higher of two d20 rolls.
+    Unlimited Power: Spell restoration with limited uses.
+
+🔮 Spellcasting Tables
+Spells Per Day
+Level	1st	2nd	3rd	4th	5th	6th	7th	8th	9th
+1	3								
+20	12	12	12	12	12	12	12	12	12
+Spells Known
+Level	1st	2nd	3rd	4th	5th	6th	7th	8th	9th
+1	6								
+20	30	30	24	24	24	24	24	24	20
+🚀 Development Guide
+Requirements
+
+    Visual Studio
+    Unity Mod Manager
+    TabletopTweaks-Core
+
+Setup
+
+    Set WrathPath as an environment variable pointing to your game directory.
+    Open Visual Studio and publicize your assemblies.
+
+Installation
+
+    Download and enable Unity Mod Manager.
+    Install TabletopTweaks-Core from here.
+    Drag and drop this mod's .zip file into Unity Mod Manager.
+
+🌟 Mod Support
+
+Compatible with:
+
+    TabletopTweaks-Base (2.5.2): Adds metamagics as Overpowered Abilities.
+    MysticalMayhem (0.1.5): Adds Meteor Swarm to the spellbook.
+    ExpandedContent (0.5.2): Adds new spells and drake companions.
+    SpellbookMerge (1.7.1): Supports merging with Aeon, Azata, Demon, and Trickster spellbooks.
+
+🙌 Credits
+
+    Original Mod by John100x1: Available here.
+    Thanks to kjk001, komoechan, Necht, and WittleWolfie for their contributions and guides.
+    Special shoutout to the modding community for feedback and support.
+
+✨ Let’s reshape the Isekai experience together! Feedback, ideas, and pull requests are always welcome. Get started on GitHub: https://github.com/bkeath/PathfinderWOTR-IsekaiMod. 🚀
+
