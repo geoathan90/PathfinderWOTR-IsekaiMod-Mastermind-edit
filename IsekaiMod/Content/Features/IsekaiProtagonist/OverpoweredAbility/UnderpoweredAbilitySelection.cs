@@ -22,50 +22,73 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility {
 
             var DodgeMaster = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "DodgeMaster", bp => {
                 bp.SetName(IsekaiContext, "Underpowered Ability — Dodge Master");
-                bp.SetDescription(IsekaiContext, "You gain a +10 dodge {g|Encyclopedia:Bonus}bonus{/g} to your {g|Encyclopedia:Armor_Class}AC{/g}.");
+                bp.SetDescription(IsekaiContext, "Blessed by the winds of fate in your new life, you can effortlessly dodge even the most well-aimed strikes."
+                    + "\nBenefit: You gain a +4 dodge bonus to AC and can move freely without provoking attacks of opportunity.");
                 bp.m_Icon = Icon_Haste;
                 bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Dodge;
                     c.Stat = StatType.AC;
-                    c.Value = 10;
+                    c.Value = 4;
+                });
+                bp.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] {
+                        BlueprintTools.GetBlueprint<BlueprintFeature>("c6147854641924442a3bb736080cfeb6").ToReference<BlueprintUnitFactReference>() // Mobility feature for avoiding AoOs
+                    };
                 });
             });
 
-            var BulkMaster = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "Super Strength", bp => {
+            var BulkMaster = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "SuperStrength", bp => {
                 bp.SetName(IsekaiContext, "Underpowered Ability — Super Strength");
-                bp.SetDescription(IsekaiContext, "You gain +100 {g|Encyclopedia:HP}hit points{/g} and a +10 bonus to your Strength.");
+                bp.SetDescription(IsekaiContext, "Infused with the strength of a titan, your physical might is a testament to your rebirth in this new world."
+                    + "\nBenefit: You gain +50 hit points and +4 Strength.");
                 bp.m_Icon = Icon_BelieveInYourselfStrength;
                 bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Stat = StatType.HitPoints;
-                    c.Value = 100;
+                    c.Value = 50;
                 });
                 bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Stat = StatType.Strength;
-                    c.Value = 10;
+                    c.Value = 4;
                 });
             });
 
             var ThoughtMaster = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "ThoughtMaster", bp => {
                 bp.SetName(IsekaiContext, "Underpowered Ability — Thought Master");
-                bp.SetDescription(IsekaiContext, "You gain a +10 bonus to your {g|Encyclopedia:Intelligence}Intelligence{/g} and {g|Encyclopedia:Wisdom}Wisdom{/g}.");
+                bp.SetDescription(IsekaiContext, "Your newfound mind is a gift from the cosmos, giving you unparalleled clarity and understanding."
+                    + "\nBenefit: You gain a +4 bonus to Intelligence and Wisdom, and a +2 bonus to Knowledge (Arcana), Knowledge (World), and Perception checks.");
                 bp.m_Icon = Icon_CrystalMind;
                 bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Stat = StatType.Intelligence;
-                    c.Value = 10;
+                    c.Value = 4;
                 });
                 bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Stat = StatType.Wisdom;
-                    c.Value = 10;
+                    c.Value = 4;
+                });
+                bp.AddComponent<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Competence;
+                    c.Stat = StatType.SkillKnowledgeArcana;
+                    c.Value = 2;
+                });
+                bp.AddComponent<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Competence;
+                    c.Stat = StatType.SkillKnowledgeWorld;
+                    c.Value = 2;
+                });
+                bp.AddComponent<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Competence;
+                    c.Stat = StatType.SkillPerception;
+                    c.Value = 2;
                 });
             });
 
             var UnderpoweredAbilitySelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>(IsekaiContext, "UnderpoweredAbilitySelection", bp => {
                 bp.SetName(IsekaiContext, "Underpowered Ability");
-                bp.SetDescription(IsekaiContext, "Sometimes you just want to be reborn into a quiet life.");
+                bp.SetDescription(IsekaiContext, "Even in this new world, you prefer to keep things simple. These humble abilities reflect your decision to avoid overwhelming power in favor of a quiet, comfortable life.");
                 bp.m_Icon = Icon_EuphoricTranquility;
                 bp.m_AllFeatures = new BlueprintFeatureReference[] {
                     DodgeMaster.ToReference<BlueprintFeatureReference>(),

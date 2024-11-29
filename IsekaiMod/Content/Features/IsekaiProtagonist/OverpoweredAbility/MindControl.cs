@@ -36,35 +36,38 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility {
                 + "\nBenefit: You can make any creature fight on your side as if it was your ally. "
                 + "It will {g|Encyclopedia:Attack}attack{/g} your opponents to the best of its ability.");
 
+            // Immunity buff
             var MindControlImmunity = TTCoreExtensions.CreateBuff("MindControlImmunity", bp => {
                 bp.SetName(IsekaiContext, "Mind Control Immunity");
-                bp.SetDescription(IsekaiContext, "This creature cannot be mind controlled again.");
+                bp.SetDescription(IsekaiContext, "This creature cannot be mind-controlled again for 1 minute.");
                 bp.m_Icon = Icon_MindControlImmune;
                 bp.AddComponent<IsPositiveEffect>();
             });
+
+            // Mind-controlled buff
             var MindControlBuff = TTCoreExtensions.CreateBuff("MindControlBuff", bp => {
                 bp.SetName(IsekaiContext, "Mind Controlled");
-                bp.SetDescription(IsekaiContext, "This creature has been mind controlled.");
+                bp.SetDescription(IsekaiContext, "This creature has been mind-controlled.");
                 bp.m_Icon = Icon_MindControl;
                 bp.AddComponent<ChangeFaction>(c => {
                     c.m_Type = ChangeFaction.ChangeType.ToCaster;
                 });
                 bp.AddComponent<AddFactContextActions>(c => {
-                    c.NewRound = ActionFlow.DoNothing();
-                    c.Activated = ActionFlow.DoSingle<ContextActionSpawnFx>(c => {
-                        c.PrefabLink = new PrefabLink() { AssetId = "28b3cd92c1fdc194d9ee1e378c23be6b" };
-                    });
                     c.Deactivated = ActionFlow.DoSingle<ContextActionApplyBuff>(c => {
                         c.m_Buff = MindControlImmunity.ToReference<BlueprintBuffReference>();
-                        c.Permanent = true;
-                        c.DurationValue = Values.Duration.Zero;
+                        c.DurationValue = new ContextDurationValue() {
+                            Rate = DurationRate.Minutes,
+                            DiceType = DiceType.Zero,
+                            BonusValue = new ContextValue() { ValueType = ContextValueType.Simple, Value = 1 }
+                        };
                     });
                 });
                 bp.Stacking = StackingType.Ignore;
                 bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.StayOnDeath;
-                bp.FxOnStart = new PrefabLink() { AssetId = "53975f48f933c534ea9c6bb97a3f64eb" };
             });
+
+            // Mind Control ability
             var MindControlAbility = Helpers.CreateBlueprint<BlueprintAbility>(IsekaiContext, "MindControlAbility", bp => {
                 bp.SetName(IsekaiContext, "Overpowered Ability — Mind Control");
                 bp.SetDescription(MindControlDesc);
@@ -74,15 +77,21 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility {
                         c.ConditionsChecker = ActionFlow.IfSingle<ContextConditionHasFact>(c => {
                             c.m_Fact = MindControlImmunity.ToReference<BlueprintUnitFactReference>();
                         });
-                        c.IfTrue = ActionFlow.DoNothing();
+                        c.IfTrue = ActionFlow.DoSingle<ContextActionApplyBuff>(c => {
+                            c.m_Buff = MindControlImmunity.ToReference<BlueprintBuffReference>();
+                            c.DurationValue = new ContextDurationValue() {
+                                Rate = DurationRate.Minutes,
+                                DiceType = DiceType.Zero,
+                                BonusValue = new ContextValue() { ValueType = ContextValueType.Simple, Value = 1 }
+                            };
+                        });
                         c.IfFalse = ActionFlow.DoSingle<ContextActionApplyBuff>(c => {
                             c.m_Buff = MindControlBuff.ToReference<BlueprintBuffReference>();
                             c.DurationValue = new ContextDurationValue() {
                                 Rate = DurationRate.Rounds,
                                 DiceType = DiceType.Zero,
                                 DiceCountValue = 0,
-                                BonusValue = Values.CreateContextRankValue(AbilityRankType.Default),
-                                m_IsExtendable = true,
+                                BonusValue = new ContextValue() { ValueType = ContextValueType.Rank }
                             };
                         });
                     });
@@ -90,24 +99,30 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility {
                 bp.AddComponent<SpellComponent>(c => {
                     c.School = SpellSchool.Enchantment;
                 });
-                bp.AddComponent<AbilitySpawnFx>(c => {
-                    c.PrefabLink = new PrefabLink() { AssetId = "c14a2f46018cb0e41bfeed61463510ff" };
-                    c.Time = AbilitySpawnFxTime.OnApplyEffect;
-                    c.Anchor = AbilitySpawnFxAnchor.SelectedTarget;
-                });
                 bp.AddComponent<ContextRankConfig>(c => {
-                    c.m_Type = AbilityRankType.StatBonus;
+                    c.m_Type = AbilityRankType.Default;
                     c.m_BaseValueType = ContextRankBaseValueType.CharacterLevel;
+                });
+                bp.AddComponent<AbilityResourceLogic>(c => {
+                    c.m_RequiredResource = Helpers.CreateBlueprint<BlueprintAbilityResource>(IsekaiContext, "MindControlResource", resource => {
+                        resource.m_MaxAmount = new BlueprintAbilityResource.Amount() {
+                            BaseValue = 1,
+                            IncreasedByLevel = true,
+                            LevelIncrease = 1 // Gains 1 additional use per level
+                        };
+                    }).ToReference<BlueprintAbilityResourceReference>();
+                    c.m_IsSpendResource = true;
                 });
                 bp.Type = AbilityType.Supernatural;
                 bp.Range = AbilityRange.Medium;
                 bp.CanTargetEnemies = true;
                 bp.Animation = UnitAnimationActionCastSpell.CastAnimationStyle.Directional;
                 bp.ActionType = UnitCommand.CommandType.Standard;
-                bp.AvailableMetamagic = Metamagic.Reach | Metamagic.CompletelyNormal;
                 bp.LocalizedDuration = StaticReferences.Strings.Duration.OneRoundPerLevel;
-                bp.LocalizedSavingThrow = StaticReferences.Strings.Null;
+                bp.LocalizedSavingThrow = Helpers.CreateString(IsekaiContext, "MindControl.SavingThrow", "Will negates");
             });
+
+            // Mind Control feature
             var MindControlFeature = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "MindControlFeature", bp => {
                 bp.SetName(IsekaiContext, "Overpowered Ability — Mind Control");
                 bp.SetDescription(MindControlDesc);

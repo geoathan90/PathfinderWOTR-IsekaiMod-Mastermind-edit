@@ -11,7 +11,7 @@ using IsekaiMod.Content.Features.IsekaiProtagonist.Archetypes.GodEmperor;
 using IsekaiMod.Content.Features.IsekaiProtagonist.Archetypes.Hero;
 using IsekaiMod.Content.Features.IsekaiProtagonist.Archetypes.Mastermind;
 using IsekaiMod.Content.Features.IsekaiProtagonist.Archetypes.Overlord;
-using IsekaiMod.Content.Features.IsekaiProtagonist.BeachEpisode;
+using IsekaiMod.Content.Features.IsekaiProtagonist.TrainingEpisode;
 using IsekaiMod.Content.Features.IsekaiProtagonist.InheritedClassFeature;
 using IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility;
 using IsekaiMod.Content.Features.IsekaiProtagonist.SpecialPower;
@@ -68,12 +68,12 @@ namespace IsekaiMod.Content {
                 Main.LogDebug("Class: Configured");
 
                 // Beach Episode Selection
-                BeachEpisodeSelection.Add();
+                TrainingEpisodeSelection.Add();
                 HealthyBody.Add();
                 InnerPower.Add();
                 MasterSelf.Add();
                 Tenacious.Add();
-                Main.LogDebug("Class: BeachEpisode");
+                Main.LogDebug("Class: TrainingEpisode");
 
                 // Special Power
                 SpecialPowerSelection.Add();
@@ -109,7 +109,7 @@ namespace IsekaiMod.Content {
                 OverpoweredAbilitySelection.Add();
                 AutoMetamagicSelection.Add();
                 Instakill.Add();
-                DupeGold.Add();
+                MerchantsGamble.Add();
                 PerfectRoll.Add();
                 SuperBuff.Add();
                 UnlimitedPower.Add();

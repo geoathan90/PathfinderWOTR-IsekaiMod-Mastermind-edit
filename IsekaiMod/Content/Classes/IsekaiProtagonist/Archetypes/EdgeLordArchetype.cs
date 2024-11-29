@@ -34,7 +34,7 @@ namespace IsekaiMod.Content.Classes.IsekaiProtagonist.Archetypes {
             var HaxSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "HaxSelection");
             var SecretPowerSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "SecretPowerSelection");
             var SignatureMoveBonusSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "SignatureMoveBonusSelection");
-            var BeachEpisodeBonusSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "BeachEpisodeBonusSelection");
+            var TrainingEpisodeBonusSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "TrainingEpisodeBonusSelection");
 
             // Archetype
             var EdgeLordArchetype = Helpers.CreateBlueprint<BlueprintArchetype>(IsekaiContext, "EdgeLordArchetype", bp => {
@@ -48,7 +48,7 @@ namespace IsekaiMod.Content.Classes.IsekaiProtagonist.Archetypes {
                     Helpers.CreateLevelEntry(3, ReleaseEnergy),
                     Helpers.CreateLevelEntry(6, SignatureMoveBonusSelection),
                     Helpers.CreateLevelEntry(10, SecretPowerSelection),
-                    Helpers.CreateLevelEntry(12, BeachEpisodeBonusSelection),
+                    Helpers.CreateLevelEntry(12, TrainingEpisodeBonusSelection),
                     Helpers.CreateLevelEntry(15, SecondReincarnation),
                     Helpers.CreateLevelEntry(20, HaxSelection),
                 };

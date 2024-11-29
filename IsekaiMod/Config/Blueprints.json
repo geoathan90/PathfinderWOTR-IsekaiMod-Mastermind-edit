@@ -341,8 +341,8 @@
     "CriticalHitImmunity": "d4cc8e7a-4b55-406a-afa3-e4c581618c83",
 
     // Beach Episode Features
-    "BeachEpisodeSelection": "7697c19c-c07c-4411-ada4-5ece5b0a58fc",
-    "BeachEpisodeBonusSelection": "02e31230-64aa-4ded-b4ee-b96f5bff1199",
+    "TrainingEpisodeSelection": "7697c19c-c07c-4411-ada4-5ece5b0a58fc",
+    "TrainingEpisodeBonusSelection": "02e31230-64aa-4ded-b4ee-b96f5bff1199",
     "HealthyBody": "c6165832-f997-40bb-b0af-145ea74670a4",
     "InnerPower": "51c61f4f-a583-48dd-8824-3dc4864ef844",
     "MasterSelf": "e18b657b-3167-4885-9ccc-cfcb2c4a3a4d",
@@ -377,8 +377,8 @@
     "AutoMetamagicSelectionMastermind": "3db86b8e-6723-45db-a2da-d2902c1e33ce",
     "InstakillAbility": "55e06f68-8f56-4d4b-824f-f6bbaa46899d",
     "InstakillFeature": "d9c8316e-3a4f-4737-ae7c-56838eb42540",
-    "DupeGoldAbility": "ec30bae3-78a1-4c58-81aa-4722f3dd9469",
-    "DupeGoldFeature": "8b74787b-f7e0-42e2-aace-7d3e9d198103",
+    "MerchantsGambleAbility": "ec30bae3-78a1-4c58-81aa-4722f3dd9469",
+    "MerchantsGambleFeature": "8b74787b-f7e0-42e2-aace-7d3e9d198103",
     "PerfectRollBuff": "57b81080-a37d-45d8-8854-c8cbf30dce24",
     "PerfectRollAbility": "3a7b97f6-f6c6-4095-be85-5fd49dc39160",
     "PerfectRollFeature": "7b53443a-43b4-4c86-a1fc-3e57893333fa",

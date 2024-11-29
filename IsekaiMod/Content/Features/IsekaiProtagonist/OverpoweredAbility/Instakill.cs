@@ -5,6 +5,8 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
+using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
@@ -12,6 +14,7 @@ using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
@@ -26,12 +29,14 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility {
         private static readonly Sprite Icon_TwoHandedFighterDevastatingBlow = BlueprintTools.GetBlueprint<BlueprintFeature>("687aa977ef0d3f849af8bee2f40930df").m_Icon;
 
         public static void Add() {
-
             LocalizedString InstaKillDesc = Helpers.CreateString(IsekaiContext, "Instakill.Description",
-                "Who will live and who will die? This power to change fate lay within your hands. Will you use this power sparingly? "
-                + "Or will you become god of the new world?"
-                + "\nBenefit: Kills the targeted creature if they fail a DC 99 fortitude saving throw, otherwise they are stunned for 1 round. "
-                + "This ability bypasses death immunity.");
+        "Who will live and who will die? This ultimate power to alter fate lies within your grasp. Will you wield it wisely, or will you "
+        + "assert your dominion as a god of the new world?"
+        + "\nBenefit: Instantly kills the targeted creature if they fail a Fortitude saving throw. The DC starts at 25 and scales with "
+        + "your level and Charisma modifier, making it increasingly difficult to resist. Creatures immune to death effects are not spared, "
+        + "but instead suffer significant unholy damage."
+        + "\nFailure: Creatures that succeed on the saving throw are stunned for 1 round, giving you the opportunity to turn the tide in your favor."
+    );
 
             var InstakillAbility = Helpers.CreateBlueprint<BlueprintAbility>(IsekaiContext, "InstakillAbility", bp => {
                 bp.SetName(IsekaiContext, "Overpowered Ability — Instakill");
@@ -47,7 +52,23 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility {
                                 c.m_Buff = Stunned.ToReference<BlueprintBuffReference>();
                                 c.DurationValue = Values.Duration.OneRound;
                             });
-                            c.Failed = ActionFlow.DoSingle<ContextActionKill>();
+                            c.Failed = ActionFlow.DoSingle<ContextActionDealDamage>(c => {
+                                c.DamageType = new DamageTypeDescription() {
+                                    Type = DamageType.Energy, // Specifies energy damage
+                                    Energy = Kingmaker.Enums.Damage.DamageEnergyType.Unholy // Unholy damage
+                                };
+                                c.Value = new ContextDiceValue() {
+                                    DiceType = DiceType.Zero,
+                                    DiceCountValue = 0,
+                                    BonusValue = new ContextValue() {
+                                        ValueType = ContextValueType.Simple,
+                                        Value = 1 // Reduces HP to 1
+                                    }
+                                };
+                                c.HalfIfSaved = false;
+                                c.IsAoE = false;
+                                c.IgnoreCritical = true;
+                            });
                         });
                     });
                 });
@@ -60,9 +81,9 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility {
                     c.Anchor = AbilitySpawnFxAnchor.SelectedTarget;
                 });
                 bp.AddComponent<ContextSetAbilityParams>(c => {
-                    c.Add10ToDC = false;
-                    c.DC = 99;
-                    c.CasterLevel = -1;
+                    c.Add10ToDC = true; // Automatically add 10 to DC from the ability rank system
+                    c.DC = 0; // Use dynamic scaling, no fixed DC
+                    c.CasterLevel = -1; // Automatically derived from the caster
                     c.Concentration = -1;
                     c.SpellLevel = 10;
                 });
@@ -81,6 +102,7 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility {
                 bp.LocalizedDuration = StaticReferences.Strings.Null;
                 bp.LocalizedSavingThrow = StaticReferences.Strings.Null;
             });
+
             var InstakillFeature = Helpers.CreateBlueprint<BlueprintFeature>(IsekaiContext, "InstakillFeature", bp => {
                 bp.SetName(IsekaiContext, "Overpowered Ability — Instakill");
                 bp.SetDescription(InstaKillDesc);
@@ -94,3 +116,4 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.OverpoweredAbility {
         }
     }
 }
+

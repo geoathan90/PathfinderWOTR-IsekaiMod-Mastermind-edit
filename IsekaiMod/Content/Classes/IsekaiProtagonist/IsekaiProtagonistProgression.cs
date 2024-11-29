@@ -23,8 +23,8 @@ namespace IsekaiMod.Content.Classes.IsekaiProtagonist {
             BlueprintFeatureSelection IsekaiPetSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "IsekaiPetSelection");
             BlueprintFeatureSelection StartingWeaponSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "StartingWeaponSelection");
             BlueprintFeatureSelection SecretPowerSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "SecretPowerSelection");
-            BlueprintFeatureSelection BeachEpisodeSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "BeachEpisodeSelection");
-            BlueprintFeatureSelection BeachEpisodeBonusSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "BeachEpisodeBonusSelection");
+            BlueprintFeatureSelection TrainingEpisodeSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "TrainingEpisodeSelection");
+            BlueprintFeatureSelection TrainingEpisodeBonusSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "TrainingEpisodeBonusSelection");
             BlueprintFeatureSelection HaxSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "HaxSelection");
             BlueprintFeatureSelection SignatureMoveSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "SignatureMoveSelection");
             BlueprintFeatureSelection SignatureMoveBonusSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "SignatureMoveBonusSelection");
@@ -133,7 +133,7 @@ namespace IsekaiMod.Content.Classes.IsekaiProtagonist {
                 Helpers.CreateLevelEntry(9, SpecialPowerSelection),
                 Helpers.CreateLevelEntry(10, IsekaiBonusFeatSelection, OverpoweredAbilitySelection, IsekaiAuraSelection, SecretPowerSelection),
                 Helpers.CreateLevelEntry(11, SpecialPowerSelection),
-                Helpers.CreateLevelEntry(12, IsekaiBonusFeatSelection, BeachEpisodeSelection, BeachEpisodeBonusSelection),
+                Helpers.CreateLevelEntry(12, IsekaiBonusFeatSelection, TrainingEpisodeSelection, TrainingEpisodeBonusSelection),
                 Helpers.CreateLevelEntry(13, SpecialPowerSelection, OtherworldlyStamina),
                 Helpers.CreateLevelEntry(14, IsekaiBonusFeatSelection),
                 Helpers.CreateLevelEntry(15, OverpoweredAbilitySelection, IsekaiQuickFooted, SecondReincarnation),
@@ -148,9 +148,9 @@ namespace IsekaiMod.Content.Classes.IsekaiProtagonist {
                 // Isekai UI group
                 Helpers.CreateUIGroup(PlotArmor, IsekaiFighterTraining, SignatureAbility, SignatureMoveSelection,
                     SummonHaremFeature, IsekaiAuraSelection, GodEmperorAuraSelection, DarkAuraFeature, HeroAuraSelection, Afterimage,
-                    IsekaiQuickFooted, GodEmperorQuickFooted, MastermindQuickFooted, BeachEpisodeSelection, OtherworldlyStamina, HaxSelection,
+                    IsekaiQuickFooted, GodEmperorQuickFooted, MastermindQuickFooted, TrainingEpisodeSelection, OtherworldlyStamina, HaxSelection,
                     ChuunibyouActualisationFeature, DeusExMachinaFeature, MasterplanFeature, SecondPhaseFeature),
-                Helpers.CreateUIGroup(ReleaseEnergy, Gifted, SignatureMoveBonusSelection, SecretPowerSelection, BeachEpisodeBonusSelection,
+                Helpers.CreateUIGroup(ReleaseEnergy, Gifted, SignatureMoveBonusSelection, SecretPowerSelection, TrainingEpisodeBonusSelection,
                     SecondReincarnation),
                 
                 // Edge Lord UI group

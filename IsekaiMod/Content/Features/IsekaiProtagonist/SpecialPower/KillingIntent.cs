@@ -20,12 +20,12 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.SpecialPower {
         private static readonly Sprite Icon_ConsumeFear = BlueprintTools.GetBlueprint<BlueprintAbility>("644d2c0d029e54d4188bc34216d9d8c0").m_Icon;
         private static readonly BlueprintBuff Shaken = BlueprintTools.GetBlueprint<BlueprintBuff>("25ec6cb6ab1845c48a95f9c20b034220");
         private static readonly BlueprintBuff Frightened = BlueprintTools.GetBlueprint<BlueprintBuff>("f08a7239aa961f34c8301518e71d4cdf");
-        private static readonly BlueprintBuff Cowering = BlueprintTools.GetBlueprint<BlueprintBuff>("6062e3a8206a4284d867cbb7120dc091");
+        //private static readonly BlueprintBuff Cowering = BlueprintTools.GetBlueprint<BlueprintBuff>("6062e3a8206a4284d867cbb7120dc091");
 
         public static void Add() {
             const string KillingIntentName = "Killing Intent";
             LocalizedString KingmakerIntentDesc = Helpers.CreateString(IsekaiContext, "KillingIntent.Description",
-                "Enemies within 40 feet of you become shaken, frightened, and cowering.");
+                "Enemies within 40 feet of you become shaken and frightened.");
 
             var KillingIntentArea = Helpers.CreateBlueprint<BlueprintAbilityAreaEffect>(IsekaiContext, "KillingIntentArea", bp => {
                 bp.m_TargetType = BlueprintAbilityAreaEffect.TargetType.Enemy;
@@ -34,35 +34,26 @@ namespace IsekaiMod.Content.Features.IsekaiProtagonist.SpecialPower {
                 bp.AffectEnemies = true;
                 bp.Fx = new PrefabLink();
                 bp.AddComponent<AbilityAreaEffectRunAction>(c => {
-                    c.UnitEnter = Helpers.CreateActionList(
-                        new ContextActionApplyBuff() {
-                            m_Buff = Shaken.ToReference<BlueprintBuffReference>(),
-                            Permanent = true,
-                            DurationValue = Values.Duration.Zero,
-                        },
-                        new ContextActionApplyBuff() {
-                            m_Buff = Frightened.ToReference<BlueprintBuffReference>(),
-                            Permanent = true,
-                            DurationValue = Values.Duration.Zero,
-                        },
-                        new ContextActionApplyBuff() {
-                            m_Buff = Cowering.ToReference<BlueprintBuffReference>(),
-                            Permanent = true,
-                            DurationValue = Values.Duration.Zero,
-                        });
-                    c.UnitExit = Helpers.CreateActionList(
-                        new ContextActionRemoveBuff() {
-                            m_Buff = Shaken.ToReference<BlueprintBuffReference>(),
-                            OnlyFromCaster = true,
-                        },
-                        new ContextActionRemoveBuff() {
-                            m_Buff = Frightened.ToReference<BlueprintBuffReference>(),
-                            OnlyFromCaster = true,
-                        },
-                        new ContextActionRemoveBuff() {
-                            m_Buff = Cowering.ToReference<BlueprintBuffReference>(),
-                            OnlyFromCaster = true,
-                        });
+                c.UnitEnter = Helpers.CreateActionList(
+                    new ContextActionApplyBuff() {
+                        m_Buff = Shaken.ToReference<BlueprintBuffReference>(),
+                        Permanent = true,
+                        DurationValue = Values.Duration.Zero,
+                    },
+                    new ContextActionApplyBuff() {
+                        m_Buff = Frightened.ToReference<BlueprintBuffReference>(),
+                        Permanent = true,
+                        DurationValue = Values.Duration.Zero,
+                    });
+                c.UnitExit = Helpers.CreateActionList(
+                    new ContextActionRemoveBuff() {
+                        m_Buff = Shaken.ToReference<BlueprintBuffReference>(),
+                        OnlyFromCaster = true,
+                    },
+                    new ContextActionRemoveBuff() {
+                        m_Buff = Frightened.ToReference<BlueprintBuffReference>(),
+                        OnlyFromCaster = true,
+                    });
                     c.UnitMove = ActionFlow.DoNothing();
                     c.Round = ActionFlow.DoSingle<ContextActionOnOwner>(c => {
                         c.Actions = ActionFlow.DoSingle<ContextActionSpawnFx>(c => {

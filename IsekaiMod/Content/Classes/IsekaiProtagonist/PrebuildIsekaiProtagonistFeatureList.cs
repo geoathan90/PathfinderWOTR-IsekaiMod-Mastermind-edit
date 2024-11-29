@@ -53,7 +53,7 @@ namespace IsekaiMod.Content.Classes.IsekaiProtagonist {
             var IsekaiBonusFeatSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "IsekaiBonusFeatSelection");
             var SignatureMoveSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "SignatureMoveSelection");
             var OverpoweredAbilitySelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "OverpoweredAbilitySelection");
-            var BeachEpisodeSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "BeachEpisodeSelection");
+            var TrainingEpisodeSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "TrainingEpisodeSelection");
             var SpecialPowerSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(IsekaiContext, "SpecialPowerSelection");
 
             var StartingWeaponLongsword = BlueprintTools.GetModBlueprint<BlueprintFeature>(IsekaiContext, "StartingWeaponLongsword");
@@ -154,7 +154,7 @@ namespace IsekaiMod.Content.Classes.IsekaiProtagonist {
                         },
                         new SelectionEntry()
                         {
-                            m_Selection = BeachEpisodeSelection.ToReference<BlueprintFeatureSelectionReference>(),
+                            m_Selection = TrainingEpisodeSelection.ToReference<BlueprintFeatureSelectionReference>(),
                             m_Features = new BlueprintFeatureReference[]{
                                 MasterSelf.ToReference<BlueprintFeatureReference>()
                             }

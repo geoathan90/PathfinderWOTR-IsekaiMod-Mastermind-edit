@@ -1058,7 +1058,7 @@
     },
     {
       "Key": "3e4f959f901f4c858c3191e7a141d8b3",
-      "SimpleName": "BeachEpisode.Description",
+      "SimpleName": "TrainingEpisode.Description",
       "ProcessTemplates": false,
       "enGB": "At 12th level, you and your companions take a short intermission beside a large body of water. During this time, you begin a journey of self discovery.",
       "ruRU": "На 12 уровне вы и ваши спутники берете небольшой перерыв на берегу большого водоема. В течение этого времени вы начинаете путешествие по самопознанию.",
@@ -1069,9 +1069,9 @@
     },
     {
       "Key": "bc35fea7823c40c1b5d5cf25e1e676a7",
-      "SimpleName": "BeachEpisodeBonusSelection.Name",
+      "SimpleName": "TrainingEpisodeBonusSelection.Name",
       "ProcessTemplates": false,
-      "enGB": "Another Beach Episode",
+      "enGB": "Another Training Episode",
       "ruRU": "Еще один Пляжный Эпизод",
       "deDE": "Noch eine Strand-Episode",
       "frFR": "Encore un épisode à la plage",
@@ -1080,9 +1080,9 @@
     },
     {
       "Key": "6e0460bebd344e4e8f11e3873ff1d02b",
-      "SimpleName": "BeachEpisodeSelection.Name",
+      "SimpleName": "TrainingEpisodeSelection.Name",
       "ProcessTemplates": false,
-      "enGB": "Beach Episode",
+      "enGB": "Training Episode",
       "ruRU": "Пляжный Эпизод",
       "deDE": "Strandepisode",
       "frFR": "Épisode à la plage",
@@ -2356,7 +2356,8 @@
     },
     {
       "Key": "f940fbeda43942d491a5883be578b19c",
-      "SimpleName": "DupeGoldAbility.Name",
+      "SimpleName": "",
+      ".Name": "",
       "ProcessTemplates": false,
       "enGB": "Overpowered Ability — Dupe Gold",
       "ruRU": "Сверхмощная Способность — Дюп Золота",
