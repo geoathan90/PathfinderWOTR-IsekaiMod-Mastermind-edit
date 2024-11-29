@@ -1,5 +1,14 @@
 # Isekai Mod
 This is a content mod for `Pathfinder: Wrath of the Righteous` that adds an `Isekai Protagonist` Class into the game.
+This mod has been heavily modified and will continue to be modified. You can think of it as Isekai Protagonist 2.0.
+It currently compiles and runs with the latest version. If you run into issues please submit a bug report.
+Several changes have been made including:
+Updating dialogue
+Adjusting dialogue discussions
+Updating of certain class mechanics
+Buffing and nuking certain abilities for OP balance reasons: A full list is incoming.
+While being OP is awesome, if it's not balanced it can make the game boring; some of these modifications
+seek to make the game continue to be challenging on an unfair difficulty even with higher stats.
 ## Development Guide
 ### Requirements
 - Visual Studio
@@ -60,7 +69,7 @@ Exception to this is the God Emperor as all options that were changed were not p
 	- `Plot Armor`: Get bonus on AC and Saving throws based on character level.
 	- `Special Power Feats`: A selection of bonus feats which have very good effects.
 		- `Alpha Strike`: Automatically confirm crits.
-		- `Beta Strike`: Get an extra attack with a -4 damage penalty.
+		- `Beta Strike`: Get an extra attack.
 		- `Gamma Strike`: Ignore concealment and your attacks count as adamantine.
 		- `Omega Strike`: Increase your damage multipler by 1.
 		- `Sigma Strike`: Increase your critical threat range by 2.
@@ -93,10 +102,10 @@ Exception to this is the God Emperor as all options that were changed were not p
 		- `AutoQuicken`: Quickens every spell you cast.
 		- `AutoReach`: Gives more range on every spell you cast.
 		- `AutoSelective`: Exclude selected targets on every spell you cast.
-		- `Instakill`: Kills target creature (no HP limit).
-		- `Dupe Gold`: Get infinite gold.
-		- `Perfect Roll`: Roll 20 on every d20 roll.
-		- `Super Buff`: Apply many powerful buffs on you and your allies.
+		- `Instakill`: Kills target creature (no HP limit).(Some bosses immune)
+		- `Business Tycoon - Dupe Gold`: Get infinite gold.(
+		- `Perfect Roll`: Roll 20 on every d20 roll.(Nerfed to 15 - 20)
+		- `Super Buff`: Apply many powerful buffs on you and your allies(nerfed)
 		- `Infinite Inventory`: Get infinite carry capacity.
 		- `Unlimited Power`: Restore all ability and spell slots at will.
 		- `Mind Control`: Make an enemy creature fight for you.
@@ -104,10 +113,10 @@ Exception to this is the God Emperor as all options that were changed were not p
 		- `True Resurrection`: Resurrect a dead companion (no diamond cost).
 		- `Supreme Being`: All your attributes have a base value of 30.
 		- `Meta Luck`: Always take the higher of two d20 rolls.
-		- `Power Leveling`: Gain extra experience when you kill an enemy.
+		- `Power Leveling`: Gain extra experience when you kill an enemy.(currently broken when also using toy bag as it overrides power leveling)
 		- `Master Summoner`: Gain extra summons to the total number of creatures summoned.
 		- `Overpowered Aura`: 4 different alignment based auras which give either extra attack(s) and/or damage.
-		- `Underpowered Ability`: A selection of less powerful effects.
+		- `Underpowered Ability`: A selection of less powerful effects. Most of these effects are still powerful, such as bonuses to stats, but not as game-breaking.
 		- `Mythic Class Feature`: see below
 		- `Dual Legacy`: Pick a second base class to get abilities from.
 		- The following requires TabletopTweaks-Base:
