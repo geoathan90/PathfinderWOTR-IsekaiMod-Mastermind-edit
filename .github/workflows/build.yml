@@ -34,7 +34,7 @@ jobs:
         }
 
     - name: Upload Compiled DLL
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@8e1b7ff82c8e28f7e4463e8b9c3a3d93b347cf4b  # Specific commit
       with:
         name: Compiled-DLL
         path: IsekaiMod/bin/Release/*.dll
