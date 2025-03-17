@@ -23,6 +23,9 @@ jobs:
     - name: Build Mod DLL
       run: msbuild IsekaiMod/IsekaiMod.sln /p:Configuration=Release
 
+    - name: Ensure Artifact Folder Exists
+      run: mkdir -p IsekaiMod/bin/Release
+
     - name: Upload Compiled DLL as Artifact
       uses: actions/upload-artifact@v3
       with:
