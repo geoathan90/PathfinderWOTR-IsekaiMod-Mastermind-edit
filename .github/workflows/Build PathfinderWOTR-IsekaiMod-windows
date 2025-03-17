@@ -1,0 +1,30 @@
+name: Build PathfinderWOTR-IsekaiMod
+
+on:
+  push:
+    branches:
+      - main  # Runs on push to main (or change to master if needed)
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  build:
+    runs-on: windows-latest  # Use a Windows environment since .NET Framework requires it
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup .NET Framework
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Restore NuGet Packages
+      run: nuget restore IsekaiMod/IsekaiMod.sln
+
+    - name: Build Mod DLL
+      run: msbuild IsekaiMod/IsekaiMod.sln /p:Configuration=Release
+
+    - name: Upload Compiled DLL as Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Compiled-DLL
+        path: IsekaiMod/bin/Release/*.dll
