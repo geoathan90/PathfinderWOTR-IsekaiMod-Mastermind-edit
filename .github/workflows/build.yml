@@ -34,7 +34,7 @@ jobs:
         }
 
     - name: Upload Compiled DLL
-      uses: actions/upload-artifact@v2  # Explicitly use v2 instead of v3
+      uses: actions/upload-artifact@v3
       with:
         name: Compiled-DLL
         path: IsekaiMod/bin/Release/*.dll
