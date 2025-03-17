@@ -3,12 +3,12 @@ name: Build PathfinderWOTR-IsekaiMod
 on:
   push:
     branches:
-      - main  # Runs on push to main (or change to master if needed)
-  workflow_dispatch:  # Allows manual trigger
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: windows-latest  # Use a Windows environment since .NET Framework requires it
+    runs-on: windows-latest
 
     steps:
     - name: Checkout Repository
@@ -18,16 +18,23 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1
 
     - name: Restore NuGet Packages
-      run: nuget restore IsekaiMod/IsekaiMod.sln
+      run: nuget restore IsekaiMod/IsekaiMod.sln || echo "NuGet restore failed"
 
     - name: Build Mod DLL
-      run: msbuild IsekaiMod/IsekaiMod.sln /p:Configuration=Release
+      run: |
+        msbuild IsekaiMod/IsekaiMod.sln /p:Configuration=Release || echo "Build failed"
 
-    - name: Ensure Artifact Folder Exists
-      run: mkdir -p IsekaiMod/bin/Release
+    - name: Verify Build Output
+      run: |
+        if (!(Test-Path "IsekaiMod/bin/Release/IsekaiMod.dll")) {
+          Write-Host "❌ Build failed: DLL not found!"
+          exit 1
+        } else {
+          Write-Host "✅ Build succeeded: DLL found."
+        }
 
-    - name: Upload Compiled DLL as Artifact
-      uses: actions/upload-artifact@v3
+    - name: Upload Compiled DLL
+      uses: actions/upload-artifact@v2  # Explicitly use v2 instead of v3
       with:
         name: Compiled-DLL
         path: IsekaiMod/bin/Release/*.dll
