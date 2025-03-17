@@ -18,11 +18,11 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1
 
     - name: Restore NuGet Packages
-      run: nuget restore IsekaiMod/IsekaiMod.sln || echo "NuGet restore failed"
+      run: nuget restore IsekaiMod.sln || echo "NuGet restore failed"
 
     - name: Build Mod DLL
       run: |
-        msbuild IsekaiMod/IsekaiMod.sln /p:Configuration=Release || echo "Build failed"
+        msbuild IsekaiMod.sln /p:Configuration=Release || echo "Build failed"
 
     - name: Verify Build Output
       run: |
