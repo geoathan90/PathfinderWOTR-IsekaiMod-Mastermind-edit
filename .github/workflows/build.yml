@@ -32,6 +32,3 @@ jobs:
         } else {
           Write-Host "✅ Build succeeded: DLL found."
         }
-
-    - name: Upload Compiled DLL
-      if: false  # This will skip artifact upload
